@@ -1,0 +1,9 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Browser",
+	"extends": "./library.json",
+	"compilerOptions": {
+		"target": "es6",
+		"lib": ["dom", "esnext"]
+	}
+}
