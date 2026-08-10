@@ -1,0 +1,9 @@
+{
+	"extends": "../typescript/base.json",
+	"compilerOptions": {
+		"composite": false,
+		"isolatedDeclarations": false,
+		"types": ["bun"]
+	},
+	"include": ["*.ts"]
+}
