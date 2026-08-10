@@ -1,7 +1,7 @@
 import type { OxfmtConfig } from "vite-plus/fmt";
 
 export const config: OxfmtConfig = {
-	ignorePatterns: [".agents/skills/**"],
+	ignorePatterns: [".agents/skills/**", "skills-lock.json"],
 	quoteProps: "consistent",
 	useTabs: true,
 	sortImports: {
