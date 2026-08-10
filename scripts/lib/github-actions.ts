@@ -3,7 +3,7 @@ import { appendFile } from "node:fs/promises";
 export function getEnvironmentVariable(name: string): string {
 	const value = process.env[name];
 
-	if (!value) {
+	if (value === undefined || value.length === 0) {
 		throw new Error(`${name} must be set`);
 	}
 
