@@ -146,15 +146,13 @@ jobs:
               echo "Release tag $release_tag already points to $tag_sha instead of $release_sha." >&2
               exit 1
             fi
+            release_tag_args=(--verify-tag)
           else
-            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
-              --field ref="refs/tags/$release_tag" \
-              --field sha="$release_sha" \
-              >/dev/null
+            release_tag_args=(--target "$release_sha")
           fi
 
           gh release create "$release_tag" \
             --repo "$GITHUB_REPOSITORY" \
-            --verify-tag \
+            "${release_tag_args[@]}" \
             --generate-notes \
             --title "$release_tag"
