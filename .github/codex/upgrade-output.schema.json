@@ -1,0 +1,14 @@
+{
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["bump", "pr_body"],
+	"properties": {
+		"bump": {
+			"type": "string",
+			"enum": ["patch", "minor", "major"]
+		},
+		"pr_body": {
+			"type": "string"
+		}
+	}
+}
