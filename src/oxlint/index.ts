@@ -34,6 +34,7 @@ for (const pluginConfig of pluginConfigs) {
 }
 
 export const config: OxlintConfig = {
+	ignorePatterns: [".agents/skills/**"],
 	plugins: pluginConfigs.flatMap((pluginConfig) => pluginConfig.plugins ?? []),
 	options: {
 		typeAware: true,

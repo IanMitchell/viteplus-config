@@ -8,7 +8,15 @@ export const importConfig: OxlintConfig = {
 		"import/export": "error",
 		// Trust the developer.
 		"import/exports-last": "off",
-		"import/extensions": ["error", "always", { ignorePackages: true }],
+		"import/extensions": [
+			"error",
+			"always",
+			{
+				ignorePackages: true,
+				// TypeScript cannot rewrite `.ts` extensions in non-relative `@/*` aliases.
+				pathGroupOverrides: [{ pattern: "@/**", action: "ignore" }],
+			},
+		],
 		"import/first": "error",
 		// Trust the developer.
 		"import/group-exports": "off",
@@ -30,7 +38,8 @@ export const importConfig: OxlintConfig = {
 		"import/no-dynamic-require": "error",
 		"import/no-empty-named-blocks": "error",
 		"import/no-mutable-exports": "error",
-		"import/no-named-as-default": "error",
+		// Packages may intentionally expose the same binding as both a named and default export.
+		"import/no-named-as-default": "off",
 		"import/no-named-as-default-member": "error",
 		"import/no-named-default": "error",
 		// Named exports are preferred.

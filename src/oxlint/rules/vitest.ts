@@ -28,7 +28,8 @@ export const vitestConfig: OxlintConfig = {
 		"vitest/no-alias-methods": "off",
 		"vitest/no-commented-out-tests": "error",
 		"vitest/no-conditional-expect": "error",
-		"vitest/no-conditional-in-test": "error",
+		// Test control flow is legitimate for loops and for narrowing discriminated result types.
+		"vitest/no-conditional-in-test": "off",
 		"vitest/no-conditional-tests": "error",
 		"vitest/no-disabled-tests": "error",
 		"vitest/no-duplicate-hooks": "error",
