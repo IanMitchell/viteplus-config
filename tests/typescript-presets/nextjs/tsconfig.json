@@ -1,0 +1,9 @@
+{
+	"extends": "../../../typescript/nextjs.json",
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./*"]
+		}
+	},
+	"include": ["*.ts"]
+}

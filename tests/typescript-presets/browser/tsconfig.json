@@ -1,0 +1,4 @@
+{
+	"extends": "../../../typescript/browser.json",
+	"include": ["index.ts"]
+}

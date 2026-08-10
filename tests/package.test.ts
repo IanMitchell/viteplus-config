@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "vite-plus/test";
 import { readPackageJson } from "../scripts/lib/package.ts";
 import { parseStableVersion } from "../scripts/lib/semver.ts";
 

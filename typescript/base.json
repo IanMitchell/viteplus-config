@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
-	"display": "Bun App",
+	"display": "Base",
 	"compilerOptions": {
 		"lib": ["ESNext"],
 		"moduleDetection": "force",
