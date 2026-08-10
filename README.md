@@ -49,6 +49,20 @@ The formatter and linter configs can be imported independently from
 `@0x57/viteplus-config/oxfmt` and `@0x57/viteplus-config/oxlint`. Next.js-specific lint
 rules are available from `@0x57/viteplus-config/oxlint/next`.
 
+### Next.js lint rules
+
+Merge the Next.js lint preset into the shared configuration for a Next.js project:
+
+```ts
+import { config } from "@0x57/viteplus-config";
+import { config as nextLint } from "@0x57/viteplus-config/oxlint/next";
+import { mergeConfig } from "vite-plus";
+
+export default mergeConfig(config, {
+	lint: nextLint,
+});
+```
+
 ### Oxlint and Oxfmt without Vite+
 
 Install the native Oxlint and Oxfmt CLIs alongside this package:
@@ -102,6 +116,12 @@ Extend a TypeScript preset from the `typescript` subpath:
 
 ## Codebase Assumptions
 
+Projects use ECMAScript modules, prefer named exports, and include file extensions on relative
+TypeScript imports.
+
+React projects use React Compiler. The lint configuration reports compiler bailouts and leaves
+compiler-managed JSX allocation checks to the compiler.
+
 ### Environment validation
 
 Direct `process.env` access is restricted to files named `environment.ts`. These modules are
@@ -116,8 +136,10 @@ Install dependencies and run the complete consumer-facing verification suite:
 
 ```sh
 vp install --frozen-lockfile
+vp test
 vp check
 vp pack
 ```
 
-Verification checks formatting, lint and type diagnostics, then builds the package.
+Verification runs the tests, checks formatting, lint and type diagnostics, then builds the
+package.
