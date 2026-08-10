@@ -1,21 +1,48 @@
-name: Publish
+name: CI/CD
 
 on:
   push:
-    branches: [main]
-
-concurrency:
-  group: publish-npm
-  cancel-in-progress: false
+  pull_request:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: check-${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Vite+
+        uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: "24"
+          cache: true
+
+      - name: Install dependencies
+        run: vp install --frozen-lockfile
+
+      - name: Test
+        run: vp test
+
+      - name: Verify package
+        run: vp check && vp pack
+
   publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: check
     runs-on: ubuntu-latest
     environment: npm
+    concurrency:
+      group: publish-npm
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -51,9 +78,9 @@ jobs:
         if: steps.registry.outputs.published == 'false'
         run: vp install --frozen-lockfile
 
-      - name: Verify package
+      - name: Build package
         if: steps.registry.outputs.published == 'false'
-        run: vp check && vp pack
+        run: vp pack
 
       - name: Inspect package contents
         if: steps.registry.outputs.published == 'false'
