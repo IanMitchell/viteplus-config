@@ -46,10 +46,10 @@
 		"semver": "7.8.5",
 		"typescript": "7.0.2",
 		"valibot": "1.4.2",
-		"vite-plus": "0.2.8"
+		"vite-plus": "0.2.9"
 	},
 	"peerDependencies": {
-		"vite-plus": "0.2.8"
+		"vite-plus": "0.2.9"
 	},
 	"packageManager": "bun@1.3.14"
 }
