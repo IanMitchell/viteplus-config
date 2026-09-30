@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import type { InferOutput } from "valibot";
 import { looseObject, parse, parseJson, pipe, record, string } from "valibot";
 
@@ -24,8 +24,4 @@ export function parsePackageJson(text: string): PackageJson {
 
 export async function readPackageJson(): Promise<PackageJson> {
 	return parsePackageJson(await readFile(packageJsonUrl, "utf8"));
-}
-
-export async function writePackageJson(packageJson: PackageJson): Promise<void> {
-	await writeFile(packageJsonUrl, `${JSON.stringify(packageJson, null, "\t")}\n`);
 }

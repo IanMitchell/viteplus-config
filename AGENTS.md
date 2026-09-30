@@ -12,7 +12,7 @@ unchanged.
   locally.
 - Run checks with `vp check` and build package artifacts with `vp pack`.
 
-Do not commit `dist`, TypeScript fixture output, or `.codex/upgrade-*` files.
+Do not commit `dist` or TypeScript fixture output.
 
 ## Dependency policy
 
@@ -40,11 +40,9 @@ decision in the PR response.
 
 ## Upgrade PRs
 
-Dependabot owns mechanical dependency and lockfile updates. After a Vite+ or
-TypeScript update merges, the toolchain analysis workflow opens a separate draft PR
-for the package version and configuration review. Keep optional configuration changes
-out of that initial draft. Apply recommendations only in response to an explicit
-maintainer instruction such as `@codex enable ...`.
+Dependabot owns mechanical dependency and lockfile updates. Review package version
+and configuration changes as part of the normal upgrade review. Apply optional
+configuration changes only in response to an explicit maintainer instruction.
 
 For each applied recommendation:
 
