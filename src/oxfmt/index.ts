@@ -16,7 +16,7 @@ export const config: OxfmtConfig = {
 			},
 			{
 				groupName: "next",
-				elementNamePattern: ["next"],
+				elementNamePattern: ["next", "void"],
 			},
 		],
 		groups: [

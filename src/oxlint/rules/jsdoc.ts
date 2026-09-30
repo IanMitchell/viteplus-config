@@ -8,6 +8,7 @@ export const jsdocConfig: OxlintConfig = {
 		"jsdoc/check-tag-names": ["error", { typed: true }],
 		"jsdoc/empty-tags": "error",
 		"jsdoc/implements-on-classes": "error",
+		"jsdoc/no-blank-blocks": "error",
 		"jsdoc/no-defaults": "error",
 		"jsdoc/require-param": "error",
 		"jsdoc/require-param-description": "error",
