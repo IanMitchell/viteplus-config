@@ -107,8 +107,6 @@ export const reactConfig: OxlintConfig = {
 		// The shared config favors function-based code over classes.
 		"react/prefer-es6-class": "off",
 		"react/prefer-function-component": "error",
-		// Oxlint split react/react-compiler into individual rules in 1.79.0.
-		// Preserve the previous reportAllBailouts coverage, including skipped optimizations.
 		"react/capitalized-calls": "error",
 		"react/error-boundaries": "error",
 		"react/exhaustive-effect-dependencies": "error",
