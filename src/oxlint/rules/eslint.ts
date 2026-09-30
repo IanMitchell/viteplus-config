@@ -217,6 +217,7 @@ export const eslintConfig: OxlintConfig = {
 		// Handled by TypeScript.
 		"no-with": "off",
 		"object-shorthand": ["error", "always"],
+		"one-var": ["error", "never"],
 		"operator-assignment": "error",
 		"prefer-arrow-callback": "error",
 		"prefer-const": "error",

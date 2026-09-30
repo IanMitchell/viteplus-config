@@ -107,7 +107,30 @@ export const reactConfig: OxlintConfig = {
 		// The shared config favors function-based code over classes.
 		"react/prefer-es6-class": "off",
 		"react/prefer-function-component": "error",
-		"react/react-compiler": ["error", { reportAllBailouts: true }],
+		// Oxlint split react/react-compiler into individual rules in 1.79.0.
+		// Preserve the previous reportAllBailouts coverage, including skipped optimizations.
+		"react/capitalized-calls": "error",
+		"react/error-boundaries": "error",
+		"react/exhaustive-effect-dependencies": "error",
+		"react/globals": "error",
+		"react/hooks": "error",
+		"react/immutability": "error",
+		"react/incompatible-library": "error",
+		"react/invariant": "error",
+		"react/memo-dependencies": "error",
+		"react/no-deriving-state-in-effects": "error",
+		"react/preserve-manual-memoization": "error",
+		"react/purity": "error",
+		"react/refs": "error",
+		"react/rule-suppression": "error",
+		"react/set-state-in-effect": "error",
+		"react/set-state-in-render": "error",
+		"react/static-components": "error",
+		"react/syntax": "error",
+		"react/todo": "error",
+		"react/unsupported-syntax": "error",
+		"react/use-memo": "error",
+		"react/void-use-memo": "error",
 		// Modern JSX transforms do not require React in scope.
 		"react/react-in-jsx-scope": "off",
 		// The shared config favors function-based code over classes.
